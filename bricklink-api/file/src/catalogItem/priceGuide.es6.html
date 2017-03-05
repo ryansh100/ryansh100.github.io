@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/catalogItem/priceGuide.es6 | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/ryansh100/bricklink-api" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/client.es6~Client.html">Client</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/condition.es6~Condition.html">Condition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/itemType.es6~ItemType.html">ItemType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/oAuthHelper.es6~OAuthHelper.html">OAuthHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/request.es6~Request.html">Request</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/request.es6~RequestParams.html">RequestParams</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">catalogItem</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/catalogItem.es6~CatalogItem.html">CatalogItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/itemImage.es6~ItemImage.html">ItemImage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/knownColor.es6~KnownColor.html">KnownColor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/priceGuide.es6~PriceDetail.html">PriceDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/priceGuide.es6~PriceGuide.html">PriceGuide</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/priceGuide.es6~PriceGuideOptions.html">PriceGuideOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/subsets.es6~Subset.html">Subset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/subsets.es6~SubsetEntry.html">SubsetEntry</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/subsets.es6~SubsetOptions.html">SubsetOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.es6~Superset.html">Superset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.es6~SupersetEntry.html">SupersetEntry</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.es6~SupersetOptions.html">SupersetOptions</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/catalogItem/priceGuide.es6</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {Request, RequestParams} from &apos;../request.es6&apos;;
+import {CatalogItem} from &apos;./catalogItem.es6&apos;;
+
+/**
+ * Specific sale price details for a givent item.
+ */
+export class PriceDetail{
+  /**
+   * Create a Price Detail instance.
+   * @param {object} [data] Data returned from an API response.
+   */
+  constructor(data){
+    data = data || {};
+    /** @type {number} */
+    this.quantity = data.quantity || 0;
+    /** @type {number} */
+    this.unit_price = data.unit_price || 0;
+    /** @type {string} */
+    this.shipping_available = data.shipping_available || &apos;&apos;;
+    /** @type {string} */
+    this.shipping_available = data.shipping_available || &apos;&apos;;
+    /** @type {string} */
+    this.seller_country_code = data.seller_country_code || &apos;&apos;;
+    /** @type {string} */
+    this.buyer_country_code = data.buyer_country_code || &apos;&apos;;
+    /** @type {Date|null} */
+    this.date_ordered = data.date_ordered ? new Date(datea.date_ordered) : null;
+  }
+}
+
+/**
+ * Represents a Price Guide for a catalog item.
+ */
+export class PriceGuide {
+  /**
+   * Create a new instance of a price guide.
+   * @param {object} [data] Data returned from an API response.
+   */
+  constructor(data){
+    /** @type {Item} item The item that belongs to the price guide. */
+    this.item = data.item ? new CatalogItem(data.item) : new Item();
+    /** @type {string} new_or_used Whether or not the price guide is new or used condition. */
+    this.new_or_used = data.new_or_used || &apos;&apos;;
+    /** @type {string} */
+    this.currency_code = data.currency_code || &apos;&apos;;
+    /** @type {number} */
+    this.min_price = data.min_price || 0;
+    /** @type {number} */
+    this.max_price = data.max_price || 0;
+    /** @type {number} */
+    this.avg_price = data.avg_price || 0;
+    /** @type {number} */
+    this.qty_avg_price = data.qty_avg_price || 0;
+    /** @type {number} */
+    this.unit_quantity = data.unit_quantity || 0;
+    /** @type {number} */
+    this.total_quantity = data.total_quantity || 0;
+    /** @type {PriceDetail[]} */
+    this.price_detail = data.price_detail ?
+      data.price_detail.map(detail =&gt; new PriceDetail(detail)) : [];
+  }
+
+  /**
+   * Method to get a known catalog item&apos;s price guide
+   * @param {string} itemType Catalog item type as found at {@link ItemType}.
+   * @param {string} itemNumber Catalog item number
+   * @param {object} [params] Params as outlined in {@link PriceGuideOptions}.
+   * @return {Request} A request that is ready to execute with a client.
+   */
+  static get(itemType, itemNumber, params) {
+    params = params ? new PriceGuideOptions(params) : new PriceGuideOptions();
+    let method = Request.GET;
+    let uri = `items/${itemType}/${itemNumber}/price`;
+
+    return new Request(method, uri, params, (data) =&gt; {
+      return new CatalogItem(data);
+    });
+  }
+}
+
+/**
+ * Price guide option request params.
+ */
+export class PriceGuideOptions extends RequestParams{
+  /**
+   * Create an instance of Price Guide options.
+   * @param {object} data Optional parameter data.
+   * @param {number|null} [data.color_id=null] The color Identification numbe of the item
+   * @param {string} [data.guide_type=&apos;stock&apos;] Indicates that which statistics to be provided. Options include &quot;sold&quot; and &quot;stock&quot;
+   * @param {string} [data.new_or_used=&apos;N&apos;] Indicates the condition of items that are included in the statistics. Acceptable values are: &quot;N&quot;: new item (default) and &quot;U&quot;: used item
+   * @param {string|null} [data.country_code=null]
+   * @param {string|null} [data.region=null]
+   * @param {string|null} [data.currency_code=null]
+   * @param {string} [data.vat=&apos;N&apos;]
+   */
+  constructor(data){
+    super(data);
+
+    data = data || {};
+    /** @type {number|null} [data.color_id=null] The color Identification numbe of the item */
+    this.color_id = data.color_id || null;
+    /** @type {string} [guide_type=&apos;stock&apos;] Indicates that which statistics to be provided. Options include &quot;sold&quot; and &quot;stock&quot; */
+    this.guide_type = data.guide_type || &apos;stock&apos;;
+    /** @type {string} [new_or_used=&apos;N&apos;] Indicates the condition of items that are included in the statistics. Acceptable values are: &quot;N&quot;: new item (default) and &quot;U&quot;: used item */
+    this.new_or_used = data.new_or_used || &apos;N&apos;;
+    /** @type {string|null} [country_code=null] */
+    this.country_code = data.country_code || null;
+    /** @type {string|null} [region=null] */
+    this.region = data.region || null;
+    /** @type {string|null} [currency_code=null] */
+    this.currency_code = data.currency_code || null;
+    /** @type {string} [vat=&apos;N&apos;] */
+    this.vat = data.vat || &apos;N&apos;;
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

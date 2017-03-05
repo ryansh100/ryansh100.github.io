@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/catalogItem/itemImage.es6 | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/ryansh100/bricklink-api" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/client.es6~Client.html">Client</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/condition.es6~Condition.html">Condition</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/itemType.es6~ItemType.html">ItemType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/oAuthHelper.es6~OAuthHelper.html">OAuthHelper</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/request.es6~Request.html">Request</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/request.es6~RequestParams.html">RequestParams</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">catalogItem</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/catalogItem.es6~CatalogItem.html">CatalogItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/itemImage.es6~ItemImage.html">ItemImage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/knownColor.es6~KnownColor.html">KnownColor</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/priceGuide.es6~PriceDetail.html">PriceDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/priceGuide.es6~PriceGuide.html">PriceGuide</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/priceGuide.es6~PriceGuideOptions.html">PriceGuideOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/subsets.es6~Subset.html">Subset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/subsets.es6~SubsetEntry.html">SubsetEntry</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/subsets.es6~SubsetOptions.html">SubsetOptions</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.es6~Superset.html">Superset</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.es6~SupersetEntry.html">SupersetEntry</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.es6~SupersetOptions.html">SupersetOptions</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/catalogItem/itemImage.es6</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {Request} from &apos;../request.es6&apos;;
+
+/**
+ * Represents an image for a specific color of a catalog item.
+ */
+export class ItemImage{
+  /**
+   * Create an instance of Item Image
+   * @param {object} data The API response data
+   * @param {number} [data.color_id=0] Color Id of the image.
+   * @param {string} [data.thumbnail_url=&apos;&apos;] The Url of the thumbnail image.
+   * @param {string} [data.type=&apos;&apos;] The type of catalog item as correspondeing to {@link ItemType}.
+   * @param {string} [data.no=&apos;&apos;] The catalog item&apos;s identification number.
+   */
+  constructor(data) {
+    data = data || {};
+    /** @type {number} */
+    this.color_id = data.color_id || 0;
+    /** @type {string} */
+    this.thumbnail_url = data.thumbnail_url || &apos;&apos;;
+    /** @type {string} */
+    this.type = data.type || &apos;&apos;;
+    /** @type {string} */
+    this.no = data.no || &apos;&apos;;
+  }
+
+  /**
+   * Method to get a known
+   * @param {string} itemType Catalog item type
+   * @param {string} itemNumber Catalog item number
+   * @param {number} colorId Catalog item&apos;s color id.
+   */
+  static get(itemType, itemNumber, colorId) {
+    let method = Request.GET;
+    let uri = `/items/${itemType}/${itemNumber}/images/${colorId}`;
+
+    return new Request(method, uri, null, (data) =&gt; {
+      return new ItemImage(data);
+    });
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
