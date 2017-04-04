@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">KnownColor | API Document</title>
+  <title data-ice="title">Category | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -57,17 +57,17 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {KnownColor} from &apos;<span><a href="file/src/catalogItem/knownColor.js.html#lineNumber6">bricklink-api/src/catalogItem/knownColor.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {Category} from &apos;<span><a href="file/src/category/category.js.html#lineNumber6">bricklink-api/src/category/category.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/catalogItem/knownColor.js.html#lineNumber6">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/category/category.js.html#lineNumber6">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">KnownColor</h1>
+  <h1 data-ice="name">Category</h1>
 
   
 
@@ -83,7 +83,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>Represents a known color object.</p>
+  <div class="description" data-ice="description"><p>Represents a Category</p>
 </div>
   
 
@@ -114,13 +114,42 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/src/catalogItem/knownColor.js~KnownColor.html#static-method-get">get</a></span></span><span data-ice="signature">(itemType: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, itemNumber: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/request.js~Request.html">Request</a></span></span>
+          <span data-ice="name"><span><a href="class/src/category/category.js~Category.html#static-method-all">all</a></span></span><span data-ice="signature">(): <span><a href="class/src/request.js~Request.html">Request</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Method to get a list of known color_id for a given catalog item.</p>
+        <div data-ice="description"><p>Get a list of all colors
+Usage:</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      <span data-ice="static">static</span>
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/src/category/category.js~Category.html#static-method-get">get</a></span></span><span data-ice="signature">(categoryId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/request.js~Request.html">Request</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Method to get a specific category</p>
 </div>
       </div>
     </td>
@@ -149,13 +178,13 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/src/catalogItem/knownColor.js~KnownColor.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
+          <span data-ice="name"><span><a href="class/src/category/category.js~Category.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(data: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Create a new instance of a known color</p>
+        <div data-ice="description"><p>Create a new instance of a category</p>
 </div>
       </div>
     </td>
@@ -184,7 +213,7 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/src/catalogItem/knownColor.js~KnownColor.html#instance-member-color_id">color_id</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          <span data-ice="name"><span><a href="class/src/category/category.js~Category.html#instance-member-category_id">category_id</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
@@ -211,7 +240,34 @@
         <p>
           
           
-          <span data-ice="name"><span><a href="class/src/catalogItem/knownColor.js~KnownColor.html#instance-member-quantity">quantity</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+          <span data-ice="name"><span><a href="class/src/category/category.js~Category.html#instance-member-category_name">category_name</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/src/category/category.js~Category.html#instance-member-parent_id">parent_id</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
       <div>
@@ -236,6 +292,66 @@
 <div data-ice="staticMethodDetails"><h2 data-ice="title">Static Public Methods</h2>
 
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-method-all">
+    <span class="access" data-ice="access">public</span>
+    <span data-ice="static">static</span>
+    
+    
+    
+    
+    <span data-ice="name">all</span><span data-ice="signature">(): <span><a href="class/src/request.js~Request.html">Request</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/category/category.js.html#lineNumber55">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Get a list of all colors
+Usage:</p>
+<pre><code><code class="source-code prettyprint">var req = Category.all();
+client.send(req).then(categories =&gt; console.log(categories));</code>
+</code></pre></div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type" data-ice="returnType"><span><a href="class/src/request.js~Request.html">Request</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>A request that resolves to an array of <span><a href="class/src/category/category.js~Category.html">Category</a></span>.</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-method-get">
     <span class="access" data-ice="access">public</span>
     <span data-ice="static">static</span>
@@ -243,21 +359,21 @@
     
     
     
-    <span data-ice="name">get</span><span data-ice="signature">(itemType: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, itemNumber: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/request.js~Request.html">Request</a></span></span>
+    <span data-ice="name">get</span><span data-ice="signature">(categoryId: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/request.js~Request.html">Request</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/catalogItem/knownColor.js.html#lineNumber35">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/category/category.js.html#lineNumber37">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Method to get a list of known color_id for a given catalog item.</p>
+  <div data-ice="description"><p>Method to get a specific category</p>
 <p>Usage:</p>
-<pre><code><code class="source-code prettyprint">var req = KnownColor.get(ItemType.Part, &apos;3001&apos;);
-client.send(req).then(colors =&gt; console.log(colors));</code>
+<pre><code><code class="source-code prettyprint">var req = Category.get(123);
+client.send(req).then(category =&gt; console.log(category));</code>
 </code></pre></div>
 
   
@@ -271,17 +387,10 @@ client.send(req).then(colors =&gt; console.log(colors));</code>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">itemType</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="name" data-depth="0">categoryId</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>Catalog item type</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">itemNumber</td>
-      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>Catalog item number</p>
 </td>
     </tr>
 </tbody>
@@ -295,7 +404,7 @@ client.send(req).then(colors =&gt; console.log(colors));</code>
       <tbody>
         <tr>
           <td class="return-type" data-ice="returnType"><span><a href="class/src/request.js~Request.html">Request</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>A request that resolves to a list of <span><a href="class/src/catalogItem/knownColor.js~KnownColor.html">KnownColor</a></span>.</p>
+          <td class="return-desc" data-ice="returnDescription"><p>A request that resolves to a <span><a href="class/src/category/category.js~Category.html">Category</a></span> instance.</p>
 </td>
         </tr>
       </tbody>
@@ -334,14 +443,14 @@ client.send(req).then(colors =&gt; console.log(colors));</code>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/catalogItem/knownColor.js.html#lineNumber13">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/category/category.js.html#lineNumber14">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Create a new instance of a known color</p>
+  <div data-ice="description"><p>Create a new instance of a category</p>
 </div>
 
   
@@ -362,19 +471,25 @@ client.send(req).then(colors =&gt; console.log(colors));</code>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
-      <td data-ice="name" data-depth="1">data.color_id</td>
+      <td data-ice="name" data-depth="1">data.category_id</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li>
 <li>default: 0</li></ul></td>
-      <td data-ice="description"><p>The color id.</p>
+      <td data-ice="description"><p>The category id. i.e. - 10</p>
 </td>
     </tr>
 <tr data-ice="property" data-depth="1">
-      <td data-ice="name" data-depth="1">data.quantity</td>
+      <td data-ice="name" data-depth="1">data.category_name</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>The category name. i.e. - Container</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">data.parent_id</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 0</li></ul></td>
-      <td data-ice="description"><p>The quantity of items with this known color.</p>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>The parent category id or 0 if root category. i.e. - 0</p>
 </td>
     </tr>
 </tbody>
@@ -403,18 +518,18 @@ client.send(req).then(colors =&gt; console.log(colors));</code>
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-color_id">
+  <h3 data-ice="anchor" id="instance-member-category_id">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span data-ice="name">color_id</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span data-ice="name">category_id</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/catalogItem/knownColor.js.html#lineNumber16">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/category/category.js.html#lineNumber17">source</a></span></span>
     </span>
   </h3>
 
@@ -446,18 +561,61 @@ client.send(req).then(colors =&gt; console.log(colors));</code>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-quantity">
+  <h3 data-ice="anchor" id="instance-member-category_name">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span data-ice="name">quantity</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span data-ice="name">category_name</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/catalogItem/knownColor.js.html#lineNumber18">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/category/category.js.html#lineNumber19">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-parent_id">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">parent_id</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/category/category.js.html#lineNumber21">source</a></span></span>
     </span>
   </h3>
 

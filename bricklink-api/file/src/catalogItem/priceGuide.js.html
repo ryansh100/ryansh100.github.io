@@ -50,6 +50,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~Superset.html">Superset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetEntry.html">SupersetEntry</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetOptions.html">SupersetOptions</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">category</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/category/category.js~Category.html">Category</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">color</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/color/color.js~Color.html">Color</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -119,6 +121,14 @@ export class PriceGuide {
 
   /**
    * Method to get a known catalog item&apos;s price guide
+   *
+   * Usage:
+   *
+   * ```
+   * var req = PriceGuide.get(ItemType.Part, &apos;3001&apos;, {new_or_used: Condition.Used});
+   * client.send(req).then(guide =&gt; console.log(guide));
+   * ```
+   *
    * @param {string} itemType Catalog item type as found at {@link ItemType}.
    * @param {string} itemNumber Catalog item number
    * @param {object} [params] Params as outlined in {@link PriceGuideOptions}.

@@ -50,6 +50,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~Superset.html">Superset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetEntry.html">SupersetEntry</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetOptions.html">SupersetOptions</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">category</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/category/category.js~Category.html">Category</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">color</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/color/color.js~Color.html">Color</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -105,7 +107,15 @@ export class Subset{
     this.entries = entries.map(e =&gt; new SubsetEntry(e));
   }
   /**
-   * Method to get a known
+   * Method to get a subset of a catalog item.
+   *
+   * Usage:
+   *
+   * ```
+   * var req = Subset.get(ItemType.Set, &apos;6020-1&apos;, {break_minifigs: true});
+   * client.send(req).then(subset =&gt; console.log(subset));
+   * ```
+   *
    * @param {string} itemType Catalog item type
    * @param {string} itemNumber Catalog item number
    * @param {object} options Options that conform to {@link SubsetOptions}.

@@ -6,9 +6,21 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "bricklink-api/src/category/category.js~category",
+    "class/src/category/category.js~Category.html",
+    "<span>Category</span> <span class=\"search-result-import-path\">bricklink-api/src/category/category.js</span>",
+    "class"
+  ],
+  [
     "bricklink-api/src/client.js~client",
     "class/src/client.js~Client.html",
     "<span>Client</span> <span class=\"search-result-import-path\">bricklink-api/src/client.js</span>",
+    "class"
+  ],
+  [
+    "bricklink-api/src/color/color.js~color",
+    "class/src/color/color.js~Color.html",
+    "<span>Color</span> <span class=\"search-result-import-path\">bricklink-api/src/color/color.js</span>",
     "class"
   ],
   [
@@ -954,6 +966,48 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/category/category.js",
+    "file/src/category/category.js.html",
+    "src/category/category.js",
+    "file"
+  ],
+  [
+    "src/category/category.js~category#category_id",
+    "class/src/category/category.js~Category.html#instance-member-category_id",
+    "src/category/category.js~Category#category_id",
+    "member"
+  ],
+  [
+    "src/category/category.js~category#category_name",
+    "class/src/category/category.js~Category.html#instance-member-category_name",
+    "src/category/category.js~Category#category_name",
+    "member"
+  ],
+  [
+    "src/category/category.js~category#constructor",
+    "class/src/category/category.js~Category.html#instance-constructor-constructor",
+    "src/category/category.js~Category#constructor",
+    "method"
+  ],
+  [
+    "src/category/category.js~category#parent_id",
+    "class/src/category/category.js~Category.html#instance-member-parent_id",
+    "src/category/category.js~Category#parent_id",
+    "member"
+  ],
+  [
+    "src/category/category.js~category.all",
+    "class/src/category/category.js~Category.html#static-method-all",
+    "src/category/category.js~Category.all",
+    "method"
+  ],
+  [
+    "src/category/category.js~category.get",
+    "class/src/category/category.js~Category.html#static-method-get",
+    "src/category/category.js~Category.get",
+    "method"
+  ],
+  [
     "src/client.js",
     "file/src/client.js.html",
     "src/client.js",
@@ -1044,6 +1098,54 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/color/color.js",
+    "file/src/color/color.js.html",
+    "src/color/color.js",
+    "file"
+  ],
+  [
+    "src/color/color.js~color#color_code",
+    "class/src/color/color.js~Color.html#instance-member-color_code",
+    "src/color/color.js~Color#color_code",
+    "member"
+  ],
+  [
+    "src/color/color.js~color#color_id",
+    "class/src/color/color.js~Color.html#instance-member-color_id",
+    "src/color/color.js~Color#color_id",
+    "member"
+  ],
+  [
+    "src/color/color.js~color#color_name",
+    "class/src/color/color.js~Color.html#instance-member-color_name",
+    "src/color/color.js~Color#color_name",
+    "member"
+  ],
+  [
+    "src/color/color.js~color#color_type",
+    "class/src/color/color.js~Color.html#instance-member-color_type",
+    "src/color/color.js~Color#color_type",
+    "member"
+  ],
+  [
+    "src/color/color.js~color#constructor",
+    "class/src/color/color.js~Color.html#instance-constructor-constructor",
+    "src/color/color.js~Color#constructor",
+    "method"
+  ],
+  [
+    "src/color/color.js~color.all",
+    "class/src/color/color.js~Color.html#static-method-all",
+    "src/color/color.js~Color.all",
+    "method"
+  ],
+  [
+    "src/color/color.js~color.get",
+    "class/src/color/color.js~Color.html#static-method-get",
+    "src/color/color.js~Color.get",
+    "method"
+  ],
+  [
     "src/condition.js",
     "file/src/condition.js.html",
     "src/condition.js",
@@ -1060,6 +1162,12 @@ window.esdocSearchIndex = [
     "class/src/condition.js~Condition.html#static-get-Used",
     "src/condition.js~Condition.Used",
     "member"
+  ],
+  [
+    "src/index.js",
+    "file/src/index.js.html",
+    "src/index.js",
+    "file"
   ],
   [
     "src/itemtype.js",

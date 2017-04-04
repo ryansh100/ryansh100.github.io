@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/itemType.js | API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/category/category.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -56,29 +56,67 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/itemType.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * Static dictionary of common catalog item types to improve code readability.
+<div class="content" data-ice="content"><h1 data-ice="title">src/category/category.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {Request} from &apos;../request&apos;;
+
+/**
+ * Represents a Category
  */
-export class ItemType {
-  /** @type {string} */
-  static get Set() { return &apos;SET&apos;; }
-  /** @type {string} */
-  static get Minifigure() { return &apos;MINIFIG&apos;; }
-  /** @type {string} */
-  static get Part() { return &apos;PART&apos;; }
-  /** @type {string} */
-  static get Book() { return &apos;BOOK&apos;; }
-  /** @type {string} */
-  static get Gear() { return &apos;GEAR&apos;; }
-  /** @type {string} */
-  static get Catalog() { return &apos;CATALOG&apos;; }
-  /** @type {string} */
-  static get Instruction() { return &apos;INSTRUCTION&apos;; }
-  /** @type {string} */
-  static get UnsortedLot() { return &apos;UNSORTED_LOT&apos;; }
-  /** @type {string} */
-  static get Box() { return &apos;ORIGINAL_BOX&apos;; }
+export class Category {
+  /**
+   * Create a new instance of a category
+   * @param {object} [data] API response data.
+   * @param {number} [data.category_id=0] The category id. i.e. - 10
+   * @param {string} [data.category_name] The category name. i.e. - Container
+   * @param {number} [data.parent_id] The parent category id or 0 if root category. i.e. - 0
+   */
+  constructor(data) {
+    data = data || {};
+    /** @type {number} */
+    this.category_id = data.category_id || 0;
+    /** @type {string} */
+    this.category_name = data.category_name || &apos;&apos;;
+    /** @type {number} */
+    this.parent_id = data.parent_id || &apos;&apos;;
+  }
+
+  /**
+   * Method to get a specific category
+   *
+   * Usage:
+   *
+   * ```
+   * var req = Category.get(123);
+   * client.send(req).then(category =&gt; console.log(category));
+   * ```
+   *
+   * @param {number} categoryId Catalog item type
+   * @return {Request} A request that resolves to a {@link Category} instance.
+   */
+  static get(categoryId) {
+    let method = Request.GET;
+    let uri = `/categories/${categoryId}`;
+
+    return new Request(method, uri, null, data =&gt; new Category(data));
+  }
+
+  /**
+   * Get a list of all colors
+   * Usage:
+   *
+   * ```
+   * var req = Category.all();
+   * client.send(req).then(categories =&gt; console.log(categories));
+   * ```
+   *
+   * @return {Request} A request that resolves to an array of {@link Category}.
+   */
+  static all() {
+    let method = Request.GET;
+    let uri = `/categories`;
+
+    return new Request(method, uri, null, data =&gt; data.map(d =&gt; new Category(d)));
+  }
 }
 </code></pre>
 

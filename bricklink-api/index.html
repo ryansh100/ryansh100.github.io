@@ -50,6 +50,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~Superset.html">Superset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetEntry.html">SupersetEntry</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetOptions.html">SupersetOptions</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">category</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/category/category.js~Category.html">Category</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">color</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/color/color.js~Color.html">Color</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -62,8 +64,10 @@
 <p><a href="https://www.bricklink.com/v2/api/register_consumer.page">https://www.bricklink.com/v2/api/register_consumer.page</a></p>
 <p>You are required to have a Bricklink account and register your IP address from
 which your application will be using the API.</p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">var Client = require(&apos;bricklink-api&apos;);
-var ItemType = require(&apos;bricklink-api/itemType&apos;);
+<pre><code class="lang-javascript"><code class="source-code prettyprint">var api = require(&apos;bricklink-api&apos;);
+var Client = api.Client,
+    ItemType = api.ItemType;
+
 var bricklink = new Client({
     &quot;consumer_key&quot;: &quot;&lt;ConsumerKey&gt;&quot;,
     &quot;consumer_secret&quot;: &quot;&lt;ConsumerSecret&gt;&quot;,
@@ -74,12 +78,20 @@ var bricklink = new Client({
 bricklink.getCatalogItem(ItemType.Part, &apos;3001&apos;)
   .then(function(part){
     console.log(part);
+  });
+
+\\ Alternate Usage:
+
+var CatalogItem = api.CatalogItem;
+var req = CatalogItem.get(ItemType.Part, &apos;3001&apos;);
+bricklink.send(req)
+  .then(function(part){
+    console.log(part);
   });</code>
 </code></pre>
-<h2 id="es7-support">ES7 Support</h2>
+<h2 id="es6-support">ES6 Support</h2>
 <p>Read basic usage.</p>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">import {Client} from &apos;bricklink-api/client&apos;;
-import {ItemType} from &apos;bricklink-api/itemType&apos;;
+<pre><code class="lang-javascript"><code class="source-code prettyprint">import {Client, ItemType, CatalogItem} from &apos;bricklink-api&apos;;
 
 const bricklink = new Client({
     &quot;consumer_key&quot;: &quot;&lt;ConsumerKey&gt;&quot;,
@@ -89,6 +101,12 @@ const bricklink = new Client({
   });
 
 bricklink.getCatalogItem(ItemType.Part, &apos;3001&apos;)
+  .then(part =&gt; console.log(part));
+
+\\ Alternate Usage:
+
+let req = CatalogItem.get(ItemType.Part, &apos;3001&apos;);
+bricklink.send(req)
   .then(part =&gt; console.log(part));</code>
 </code></pre>
 <h2 id="proxy-support">Proxy Support</h2>
@@ -99,7 +117,7 @@ environment where IP addresses are not always reserved.</p>
 </code></pre><p>Then you will need to pass in a created agent in the <code>agent</code> parameter of the
 client configuration options.</p>
 <pre><code class="lang-javascript"><code class="source-code prettyprint">import HttpsProxyAgent from &apos;https-proxy-agent&apos;;
-import {Client} from &apos;bricklink-api/client&apos;;
+import {Client} from &apos;bricklink-api&apos;;
 
 const proxy = new HttpsProxyAgent(&apos;http://217.33.216.114:8080&apos;);
 
@@ -114,6 +132,10 @@ const bricklink = new Client({
 <h2 id="documentation">Documentation</h2>
 <p>Full API documentation is available at:</p>
 <p><a href="https://ryansh100.github.io/bricklink-api">https://ryansh100.github.io/bricklink-api</a></p>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li>2017/04/03: Update to make more intuitive imports.</li>
+</ul>
 </div>
 </div>
 

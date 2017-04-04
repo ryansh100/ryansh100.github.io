@@ -50,6 +50,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~Superset.html">Superset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetEntry.html">SupersetEntry</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetOptions.html">SupersetOptions</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">category</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/category/category.js~Category.html">Category</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">color</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/color/color.js~Color.html">Color</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -596,7 +598,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/catalogItem/catalogItem.js.html#lineNumber52">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/catalogItem/catalogItem.js.html#lineNumber60">source</a></span></span>
     </span>
   </h3>
 
@@ -604,7 +606,10 @@
   
   
   <div data-ice="description"><p>Method to get a known catalog item</p>
-</div>
+<p>Usage:</p>
+<pre><code><code class="source-code prettyprint">var req = CatalogItem.get(ItemType.Part, &apos;3001&apos;);
+client.send(req).then(item =&gt; console.log(item));</code>
+</code></pre></div>
 
   
 

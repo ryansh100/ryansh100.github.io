@@ -50,6 +50,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~Superset.html">Superset</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetEntry.html">SupersetEntry</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/catalogItem/supersets.js~SupersetOptions.html">SupersetOptions</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">category</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/category/category.js~Category.html">Category</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">color</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/color/color.js~Color.html">Color</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -102,6 +104,14 @@ export class CatalogItem {
 
   /**
    * Method to get a known catalog item
+   *
+   * Usage:
+   *
+   * ```
+   * var req = CatalogItem.get(ItemType.Part, &apos;3001&apos;);
+   * client.send(req).then(item =&gt; console.log(item));
+   * ```
+   *
    * @param {string} itemType Catalog item type i.e. - MINIFIG, PART, SET, BOOK, GEAR, CATALOG, INSTRUCTION, UNSORTED_LOT, ORIGINAL_BOX
    * @param {string} itemNumber Catalog item number
    * @return {Request} A request that is ready to execute with a client.
