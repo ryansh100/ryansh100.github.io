@@ -471,147 +471,6 @@ define('clients/8brick',['exports', 'aurelia-fetch-client'], function (exports, 
     return EightBrick;
   }();
 });
-define('panel/index',['exports'], function (exports) {
-  'use strict';
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-
-  var Panel = exports.Panel = function () {
-    function Panel() {
-      _classCallCheck(this, Panel);
-    }
-
-    Panel.prototype.configureRouter = function configureRouter(config, router) {
-      this.router = router;
-      config.map([{
-        route: ['', '*path'],
-        name: 'responsive',
-        title: 'Matches',
-        moduleId: './responsive'
-      }]);
-    };
-
-    return Panel;
-  }();
-});
-define('panel/responsive',['exports', 'storage', 'aurelia-framework', 'encoding', 'qrious'], function (exports, _storage, _aureliaFramework, _encoding, _qrious) {
-  'use strict';
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.Responsive = undefined;
-
-  var _qrious2 = _interopRequireDefault(_qrious);
-
-  function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
-  }
-
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-
-  var _createClass = function () {
-    function defineProperties(target, props) {
-      for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
-      }
-    }
-
-    return function (Constructor, protoProps, staticProps) {
-      if (protoProps) defineProperties(Constructor.prototype, protoProps);
-      if (staticProps) defineProperties(Constructor, staticProps);
-      return Constructor;
-    };
-  }();
-
-  var _dec, _class;
-
-  var Responsive = exports.Responsive = (_dec = (0, _aureliaFramework.inject)(_storage.Storage), _dec(_class = function () {
-    function Responsive(storage) {
-      _classCallCheck(this, Responsive);
-
-      this.storage = storage;
-      this.settingsListener = null;
-      this.descriptor = {};
-      this.qr = null;
-    }
-
-    Responsive.prototype.attached = function attached() {
-      var _this = this;
-
-      this.settingsListener = this.storage.listen('descriptor', function (change) {
-        _this.updateDescriptor(change.doc);
-      });
-
-      this.qr = new _qrious2.default({
-        element: document.getElementById('qr'),
-        value: this.bbid
-      });
-    };
-
-    Responsive.prototype.activate = function activate() {
-      var _this2 = this;
-
-      return this.storage.read('descriptor').then(function (doc) {
-        _this2.descriptor = Object.assign({}, doc);
-      }).catch(function (err) {});
-    };
-
-    Responsive.prototype.updateDescriptor = function updateDescriptor(doc) {
-      var _this3 = this;
-
-      var keys = Object.keys(this.descriptor);
-      keys.forEach(function (key) {
-        _this3.descriptor[key] = undefined;
-      });
-
-      this.descriptor = Object.assign(this.descriptor, doc);
-      this.qr.value = this.bbid;
-    };
-
-    Responsive.prototype.detached = function detached() {
-      this.settingsListener.cancel();
-    };
-
-    _createClass(Responsive, [{
-      key: 'bbid',
-      get: function get() {
-        return _encoding.Encode.toBBID(this.descriptor);
-      }
-    }]);
-
-    return Responsive;
-  }()) || _class);
-});
-define('resources/index',['exports'], function (exports) {
-  'use strict';
-
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.configure = configure;
-  function configure(config) {
-    config.globalResources(['./elements/descriptor-navigation.html', './value-converters/color', './value-converters/hasValuesFor', './value-converters/hinge']);
-  }
-});
 define('descriptor/assembly',['exports', 'storage', 'aurelia-framework'], function (exports, _storage, _aureliaFramework) {
   'use strict';
 
@@ -2374,6 +2233,147 @@ define('descriptor/studs',['exports', 'aurelia-framework', 'storage'], function 
     return StudOrientation;
   }();
 });
+define('panel/index',['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  var Panel = exports.Panel = function () {
+    function Panel() {
+      _classCallCheck(this, Panel);
+    }
+
+    Panel.prototype.configureRouter = function configureRouter(config, router) {
+      this.router = router;
+      config.map([{
+        route: ['', '*path'],
+        name: 'responsive',
+        title: 'Matches',
+        moduleId: './responsive'
+      }]);
+    };
+
+    return Panel;
+  }();
+});
+define('panel/responsive',['exports', 'storage', 'aurelia-framework', 'encoding', 'qrious'], function (exports, _storage, _aureliaFramework, _encoding, _qrious) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Responsive = undefined;
+
+  var _qrious2 = _interopRequireDefault(_qrious);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  var _createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
+
+  var _dec, _class;
+
+  var Responsive = exports.Responsive = (_dec = (0, _aureliaFramework.inject)(_storage.Storage), _dec(_class = function () {
+    function Responsive(storage) {
+      _classCallCheck(this, Responsive);
+
+      this.storage = storage;
+      this.settingsListener = null;
+      this.descriptor = {};
+      this.qr = null;
+    }
+
+    Responsive.prototype.attached = function attached() {
+      var _this = this;
+
+      this.settingsListener = this.storage.listen('descriptor', function (change) {
+        _this.updateDescriptor(change.doc);
+      });
+
+      this.qr = new _qrious2.default({
+        element: document.getElementById('qr'),
+        value: this.bbid
+      });
+    };
+
+    Responsive.prototype.activate = function activate() {
+      var _this2 = this;
+
+      return this.storage.read('descriptor').then(function (doc) {
+        _this2.descriptor = Object.assign({}, doc);
+      }).catch(function (err) {});
+    };
+
+    Responsive.prototype.updateDescriptor = function updateDescriptor(doc) {
+      var _this3 = this;
+
+      var keys = Object.keys(this.descriptor);
+      keys.forEach(function (key) {
+        _this3.descriptor[key] = undefined;
+      });
+
+      this.descriptor = Object.assign(this.descriptor, doc);
+      this.qr.value = this.bbid;
+    };
+
+    Responsive.prototype.detached = function detached() {
+      this.settingsListener.cancel();
+    };
+
+    _createClass(Responsive, [{
+      key: 'bbid',
+      get: function get() {
+        return _encoding.Encode.toBBID(this.descriptor);
+      }
+    }]);
+
+    return Responsive;
+  }()) || _class);
+});
+define('resources/index',['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.configure = configure;
+  function configure(config) {
+    config.globalResources(['./elements/descriptor-navigation.html', './value-converters/color', './value-converters/hasValuesFor', './value-converters/hinge']);
+  }
+});
 define('resources/value-converters/color',['exports', 'colorPalette'], function (exports, _colorPalette) {
   'use strict';
 
@@ -2507,10 +2507,10 @@ define('resources/value-converters/hinge',['exports', 'descriptor/hinge'], funct
   }();
 });
 define('text!app.html', ['module'], function(module) { module.exports = "<template><require from=\"./app.css\"></require><div class=\"app mobile\"><div class=\"top\"><router-view name=\"top\"></router-view></div><div class=\"bottom\"><router-view name=\"bottom\"></router-view></div></div></template>"; });
-define('text!app.css', ['module'], function(module) { module.exports = "@media (max-width: 767px) {\n  .app.mobile > .top {\n    height: 40vh; } }\n\n@media (max-width: 767px) {\n  .app.mobile > .bottom {\n    height: 60vh; } }\n"; });
-define('text!descriptor/index.css', ['module'], function(module) { module.exports = ""; });
 define('text!create.html', ['module'], function(module) { module.exports = "<template><div class=\"container\"><p></p><div class=\"ui labeled input\"><div class=\"ui label\">LEGO Element ID</div><input value.bind=\"elementId\" type=\"number\" step=\"1\" placeholder=\"\"></div><p></p><p></p><div class=\"ui labeled input\"><div class=\"ui label\"><i class=\"photo icon\"></i> Photo</div><input id=\"photoUpload\" change.delegate=\"previewImage()\" value.bind=\"photo\" type=\"file\" placeholder=\"Upload or Take Photo\"></div><p></p><p if.bind=\"photoData\"><img class=\"ui small image\" src=\"${photoData}\"></p><p><button class=\"ui button\" click.delegate=\"create()\" class.bind=\"photoData && elementId ? '': 'disabled'\"><i class=\"add icon\"></i> Add Part On 8brick</button></p></div></template>"; });
 define('text!descriptor/assembly.html', ['module'], function(module) { module.exports = "<template><p>Is this piece an assembly of other pieces?</p><button click.delegate=\"toggleAssembly()\" class=\"ui labeled icon button ${isAssembly ? 'primary': 'basic'}\"><i class=\"toggle ${isAssembly ? 'on' : 'off'} icon\"></i> ${ isAssembly ? 'Yes': 'No'}</button><h3>Examples</h3><descriptor-navigation next-text=\"Studs\" next-route=\"#/studs\"></descriptor-navigation></template>"; });
+define('text!app.css', ['module'], function(module) { module.exports = "@media (max-width: 767px) {\n  .app.mobile > .top {\n    height: 40vh; } }\n\n@media (max-width: 767px) {\n  .app.mobile > .bottom {\n    height: 60vh; } }\n"; });
+define('text!descriptor/index.css', ['module'], function(module) { module.exports = ""; });
 define('text!descriptor/axle-sockets.html', ['module'], function(module) { module.exports = "<template><p>Axle Sockets are receivers to pieces with cross axles.</p><p></p><div class=\"ui input labeled fluid\"><div class=\"ui label\">Count</div><input change.delegate=\"updateAxles()\" value.bind=\"axleSockets\" step=\"1\" type=\"number\" placeholder=\"The number of sockets for axles.\"></div><p></p><descriptor-navigation prev-text=\"Clips\" prev-route=\"#/clips\" next-text=\"Axles\" next-route=\"#/axles\"></descriptor-navigation></template>"; });
 define('text!descriptor/axles.html', ['module'], function(module) { module.exports = "<template><require from=\"./elements/axle-arrangement.html\"></require><h2>Axles</h2><p>Axles are a cross pattern pieces that are a given length. Measurements are rounded to the nearest 8mm's.</p><div class=\"ui top attached segment\" if.bind=\"axle0.show\"><axle-arrangement arrangement.bind=\"axle0\" on-change.bind=\"changeCallback\" index.bind=\"0\"></axle-arrangement></div><div class=\"ui bottom attached menu\" if.bind=\"!axle1.show\"><button class=\"ui button item\" click.delegate=\"axle1.toggle()\"><i class=\"icon add\"></i> Add Side</button></div><div class=\"ui attached segment\" if.bind=\"axle1.show\"><axle-arrangement arrangement.bind=\"axle1\" on-change.bind=\"changeCallback\" index.bind=\"1\"></axle-arrangement></div><div class=\"ui bottom attached menu\" if.bind=\"!axle2.show && axle1.show\"><button class=\"ui button item\" click.delegate=\"axle2.toggle()\"><i class=\"icon add\"></i> Add Side</button> <button class=\"ui button red item\" click.delegate=\"removeSide(axle1)\"><i class=\"icon remove\"></i> Remove Side</button></div><div class=\"ui attached segment\" if.bind=\"axle2.show\"><axle-arrangement arrangement.bind=\"axle2\" on-change.bind=\"changeCallback\" index.bind=\"2\"></axle-arrangement></div><div class=\"ui bottom attached menu\" if.bind=\"!axle3.show && axle2.show\"><button class=\"ui button item\" click.delegate=\"axle3.toggle()\"><i class=\"icon add\"></i> Add Side</button> <button class=\"ui button red item\" click.delegate=\"removeSide(axle2)\"><i class=\"icon remove\"></i> Remove Side</button></div><div class=\"ui attached segment\" if.bind=\"axle3.show\"><axle-arrangement arrangement.bind=\"axle3\" on-change.bind=\"changeCallback\" index.bind=\"3\"></axle-arrangement></div><div class=\"ui bottom attached menu\" if.bind=\"axle3.show\"><button class=\"ui button red item\" click.delegate=\"removeSide(axle3)\"><i class=\"icon remove\"></i> Remove Side</button></div><h3>Examples</h3><descriptor-navigation prev-text=\"Axle Sockets\" prev-route=\"#/axle-sockets\" next-text=\"Pins\" next-route=\"#/pins\"></descriptor-navigation></template>"; });
 define('text!descriptor/bars.html', ['module'], function(module) { module.exports = "<template><require from=\"./elements/bar-arrangement.html\"></require><h2>Clip Bars</h2><p>Clips bar features are round bars that a standard clip would connect to.</p><div class=\"ui top attached segment\" if.bind=\"bar0.show\"><bar-arrangement arrangement.bind=\"bar0\" on-change.bind=\"changeCallback\" index.bind=\"0\"></bar-arrangement></div><div class=\"ui bottom attached menu\" if.bind=\"!bar1.show\"><button class=\"ui button item\" click.delegate=\"bar1.toggle()\"><i class=\"icon add\"></i> Add Side</button></div><div class=\"ui attached segment\" if.bind=\"bar1.show\"><bar-arrangement arrangement.bind=\"bar1\" on-change.bind=\"changeCallback\" index.bind=\"1\"></bar-arrangement></div><div class=\"ui bottom attached menu\" if.bind=\"!bar2.show && bar1.show\"><button class=\"ui button item\" click.delegate=\"bar2.toggle()\"><i class=\"icon add\"></i> Add Side</button> <button class=\"ui button red item\" click.delegate=\"removeSide(bar1)\"><i class=\"icon remove\"></i> Remove Side</button></div><div class=\"ui attached segment\" if.bind=\"bar2.show\"><bar-arrangement arrangement.bind=\"bar2\" on-change.bind=\"changeCallback\" index.bind=\"2\"></bar-arrangement></div><div class=\"ui bottom attached menu\" if.bind=\"!bar3.show && bar2.show\"><button class=\"ui button item\" click.delegate=\"bar3.toggle()\"><i class=\"icon add\"></i> Add Side</button> <button class=\"ui button red item\" click.delegate=\"removeSide(bar2)\"><i class=\"icon remove\"></i> Remove Side</button></div><div class=\"ui attached segment\" if.bind=\"bar3.show\"><bar-arrangement arrangement.bind=\"bar3\" on-change.bind=\"changeCallback\" index.bind=\"3\"></bar-arrangement></div><div class=\"ui bottom attached menu\" if.bind=\"bar3.show\"><button class=\"ui button red item\" click.delegate=\"removeSide(bar3)\"><i class=\"icon remove\"></i> Remove Side</button></div><descriptor-navigation prev-text=\"Pin Sockets\" prev-route=\"#/pin-sockets\" next-text=\"Bar Sleeves\" next-route=\"#/sleeves\"></descriptor-navigation></template>"; });
@@ -2529,7 +2529,7 @@ define('text!descriptor/sockets.html', ['module'], function(module) { module.exp
 define('text!descriptor/sticker.html', ['module'], function(module) { module.exports = "<template><h2>Sticker</h2><p>Represents the size of any stickers in mm.</p><p></p><div class=\"ui right labeled fluid input\"><div class=\"ui label\">Min</div><input value.bind=\"stickerMinMm\" step=\"2\" type=\"number\" placeholder=\"A minimum measurement to nearest 2mm.\"><div class=\"ui basic label\">mm</div></div><p></p><p></p><div class=\"ui right labeled fluid input\"><div class=\"ui label\">Max</div><input value.bind=\"stickerMaxMm\" step=\"2\" type=\"number\" placeholder=\"A maximum measurement to nearest 2mm.\"><div class=\"ui basic label\">mm</div></div><p></p><h3>Example</h3><p></p><descriptor-navigation next-text=\"Colors\" next-route=\"#/colors\" prev-text=\"Printed\" prev-route=\"#/printed\"></descriptor-navigation></template>"; });
 define('text!descriptor/studs.html', ['module'], function(module) { module.exports = "<template><require from=\"./elements/stud-face.html\"></require><h2>Studs</h2><p>Studs are the round knobs that are commonly found on a building block's top.</p><div class=\"ui top attached segment\" if.bind=\"orientation0.show\"><stud-face orientation.bind=\"orientation0\" index.bind=\"0\" on-change.bind=\"changeCallback\"></stud-face></div><div class=\"ui bottom attached menu\" if.bind=\"!orientation1.show\"><button class=\"ui button item\" click.delegate=\"orientation1.toggle()\"><i class=\"icon add\"></i> Add Side</button></div><div class=\"ui attached segment\" if.bind=\"orientation1.show\"><stud-face orientation.bind=\"orientation1\" index.bind=\"1\" on-change.bind=\"changeCallback\"></stud-face></div><div class=\"ui bottom attached menu\" if.bind=\"!orientation2.show && orientation1.show\"><button class=\"ui button item\" click.delegate=\"orientation2.toggle()\"><i class=\"icon add\"></i> Add Side</button> <button class=\"ui button red item\" click.delegate=\"removeOrientation(orientation1)\"><i class=\"icon remove\"></i> Remove Side</button></div><div class=\"ui attached segment\" if.bind=\"orientation2.show\"><stud-face orientation.bind=\"orientation2\" index.bind=\"2\" on-change.bind=\"changeCallback\"></stud-face></div><div class=\"ui bottom attached menu\" if.bind=\"!orientation3.show && orientation2.show\"><button class=\"ui button item\" click.delegate=\"orientation3.toggle()\"><i class=\"icon add\"></i> Add Side</button> <button class=\"ui button red item\" click.delegate=\"removeOrientation(orientation2)\"><i class=\"icon remove\"></i> Remove Side</button></div><div class=\"ui attached segment\" if.bind=\"orientation3.show\"><stud-face orientation.bind=\"orientation3\" index.bind=\"3\" on-change.bind=\"changeCallback\"></stud-face></div><div class=\"ui bottom attached menu\" if.bind=\"!orientation4.show && orientation3.show\"><button class=\"ui button item\" click.delegate=\"orientation4.toggle()\"><i class=\"icon add\"></i> Add Side</button> <button class=\"ui button red item\" click.delegate=\"removeOrientation(orientation3)\"><i class=\"icon remove\"></i> Remove Side</button></div><div class=\"ui attached segment\" if.bind=\"orientation4.show\"><stud-face orientation.bind=\"orientation4\" index.bind=\"4\" on-change.bind=\"changeCallback\"></stud-face></div><div class=\"ui bottom attached menu\" if.bind=\"orientation4.show\"><button class=\"ui button red item\" click.delegate=\"removeOrientation(orientation4)\"><i class=\"icon remove\"></i> Remove Side</button></div><descriptor-navigation prev-text=\"Assembly\" prev-route=\"#/assembly\" next-text=\"Height\" next-route=\"#/height\"></descriptor-navigation></template>"; });
 define('text!panel/index.html', ['module'], function(module) { module.exports = "<template><router-view></router-view></template>"; });
-define('text!panel/responsive.html', ['module'], function(module) { module.exports = "<template><div class=\"ui container\" if.bind=\"bbid == '0-----------------.-------------------------------------------------------'\"><h1 class=\"ui header\">What is BBID?</h1><p>BBID/Building Blick Identification is a way to semantically describe LEGO parts to find them or catalog them. Rather than having 1-1 names for a part A part is descibed by a collection of attributes such as height, color and studs.</p><p>This opens up the opportunity to systematically order parts by other similar parts.</p></div><div class=\"ui container\" if.bind=\"bbid != '0-----------------.-------------------------------------------------------'\"><pre>${bbid}</pre><canvas id=\"qr\"></canvas></div></template>"; });
+define('text!panel/responsive.html', ['module'], function(module) { module.exports = "<template><div class=\"ui container\" if.bind=\"bbid == '0-----------------.-------------------------------------------------------'\"><h1 class=\"ui header\">What is BBID?</h1><p>BBID/Building Block Identification is a way to semantically describe LEGO parts to find them or catalog them. Rather than having 1-1 names for a part A part is descibed by a collection of attributes such as height, color and studs.</p><p>This opens up the opportunity to systematically order parts by other similar parts.</p></div><div class=\"ui container\" if.bind=\"bbid != '0-----------------.-------------------------------------------------------'\"><pre>${bbid}</pre><canvas id=\"qr\"></canvas></div></template>"; });
 define('text!descriptor/elements/axle-arrangement.html', ['module'], function(module) { module.exports = "<template bindable=\"arrangement, index, onChange\"><h3>Side ${index+1}</h3><p></p><div class=\"ui input right labeled fluid\"><div class=\"ui label\">Length</div><input change.delegate=\"onChange()\" value.bind=\"arrangement.lengthMm\" step=\"8\" type=\"number\" placeholder=\"The length of a each axle.\"><div class=\"ui basic label\">mm</div></div><p></p></template>"; });
 define('text!descriptor/elements/bar-arrangement.html', ['module'], function(module) { module.exports = "<template bindable=\"arrangement, index, onChange\"><h3>Side ${index+1}</h3><p></p><div class=\"ui input labeled fluid\"><div class=\"ui label\">Count</div><input change.delegate=\"onChange()\" value.bind=\"arrangement.count\" step=\"1\" type=\"number\" placeholder=\"The number of bars on the side.\"></div><p></p></template>"; });
 define('text!descriptor/elements/clip-arrangement.html', ['module'], function(module) { module.exports = "<template bindable=\"arrangement, index, onChange\"><h3>Side ${index+1}</h3><p></p><div class=\"ui input labeled fluid\"><div class=\"ui label\">Count</div><input change.delegate=\"onChange()\" value.bind=\"arrangement.count\" step=\"1\" type=\"number\" placeholder=\"The number of clips on the side.\"></div><p></p></template>"; });
